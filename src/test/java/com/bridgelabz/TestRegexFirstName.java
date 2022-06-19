@@ -22,5 +22,12 @@ public class TestRegexFirstName {
         assertTrue(result);
     }
 
+    @Test
+    void givenEmail_whenTested_shouldFollowConvention(){
+        RegexGmail email = new RegexGmail();
+        boolean result = email.checkEmail("vin@co.in");
+        assertTrue(result);
+    }
+
 
 }
