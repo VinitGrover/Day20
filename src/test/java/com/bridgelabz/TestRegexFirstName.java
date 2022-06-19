@@ -56,4 +56,11 @@ public class TestRegexFirstName {
         assertTrue(result);
     }
 
+    @Test
+    void givenPasswordHaveAtLeastOneSpecialCharacter_WhenTested_shouldReturnTrue(){
+        RegexPasswordSpecialCharacter password = new RegexPasswordSpecialCharacter();
+        boolean result = password.checkPasswordSpecialCharacter("Hsdjf44ksJ%$jsjd");
+        assertTrue(result);
+    }
+
 }
