@@ -49,4 +49,11 @@ public class TestRegexFirstName {
         assertTrue(result);
     }
 
+    @Test
+    void givenPasswordHaveAtLeastOneNumeric_WhenTested_shouldReturnTrue(){
+        RegexPasswordNumeric password = new RegexPasswordNumeric();
+        boolean result = password.checkPasswordNumeric("Hsdjf44ksJjsjd");
+        assertTrue(result);
+    }
+
 }
