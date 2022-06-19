@@ -1,9 +1,8 @@
 package com.bridgelabz;
 
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TestRegexFirstName {
@@ -26,6 +25,13 @@ public class TestRegexFirstName {
     void givenEmail_whenTested_shouldFollowConvention(){
         RegexGmail email = new RegexGmail();
         boolean result = email.checkEmail("vin@co.in");
+        assertTrue(result);
+    }
+
+    @Test
+    void givenPhone_WhenTested_shouldReturnTrue(){
+        RegexMobile mobile = new RegexMobile();
+        boolean result = mobile.checkPhone("91 7804879237");
         assertTrue(result);
     }
 
