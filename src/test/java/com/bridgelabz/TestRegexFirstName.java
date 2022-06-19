@@ -10,12 +10,12 @@ public class TestRegexFirstName {
     static RegexFirstName firstName;
 
     @BeforeAll
-    static void initialise(){
+    static void initialise() {
         firstName = new RegexFirstName();
     }
 
     @Test
-    void givenFirstCharacterUpperCase_whenTested_shouldReturnTrue(){
+    void givenFirstCharacterUpperCase_whenTested_shouldReturnTrue() {
         boolean result = firstName.checkName("Rob");
         assertTrue(result);
     }
