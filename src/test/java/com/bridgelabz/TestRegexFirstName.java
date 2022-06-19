@@ -37,8 +37,15 @@ public class TestRegexFirstName {
 
     @Test
     void givenPassword_WhenTested_shouldReturnTrue(){
-        RegexPassword mobile = new RegexPassword();
-        boolean result = mobile.checkPassword("HsdjfksJjsjd");
+        RegexPassword password = new RegexPassword();
+        boolean result = password.checkPassword("HsdjfksJjsjd");
+        assertTrue(result);
+    }
+
+    @Test
+    void givenPasswordHaveAtLeastOneUpperCase_WhenTested_shouldReturnTrue(){
+        RegexPasswordUpperCase password = new RegexPasswordUpperCase();
+        boolean result = password.checkPasswordUpperCase("HsdjfksJjsjd");
         assertTrue(result);
     }
 
