@@ -35,5 +35,11 @@ public class TestRegexFirstName {
         assertTrue(result);
     }
 
+    @Test
+    void givenPassword_WhenTested_shouldReturnTrue(){
+        RegexPassword mobile = new RegexPassword();
+        boolean result = mobile.checkPassword("HsdjfksJjsjd");
+        assertTrue(result);
+    }
 
 }
