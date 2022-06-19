@@ -63,4 +63,26 @@ public class TestRegexFirstName {
         assertTrue(result);
     }
 
+    @Test
+    void givenEmail_WhenTested_shouldReturnTrue(){
+        GmailSample email = new GmailSample();
+        boolean result = email.checkEmail("abc@yahoo.com");
+        assertTrue(result);
+        result = email.checkEmail("abc-100@yahoo.com,");
+        assertTrue(result);
+        result = email.checkEmail("abc.100@yahoo.com");
+        assertTrue(result);
+        result = email.checkEmail("abc111@abc.com,");
+        assertTrue(result);
+        result = email.checkEmail("abc-100@yahoo.abc.net,");
+        assertTrue(result);
+        result = email.checkEmail("abc.100@bc.com.au");
+        assertTrue(result);
+        result = email.checkEmail("abc@1.com,");
+        assertTrue(result);
+        result = email.checkEmail("abc@gmail.com.com");
+        assertTrue(result);
+        result = email.checkEmail("abc+100@gmail.com");
+        assertTrue(result);
+    }
 }
