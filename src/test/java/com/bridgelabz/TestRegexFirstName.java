@@ -80,7 +80,7 @@ public class TestRegexFirstName {
         assertTrue(result);
         result = email.checkEmail("abc@1.com,");
         assertTrue(result);
-        result = email.checkEmail("abc@gmail.com.com");
+        result = email.checkEmail("abc@gmail.com.com"); 
         assertTrue(result);
         result = email.checkEmail("abc+100@gmail.com");
         assertTrue(result);
