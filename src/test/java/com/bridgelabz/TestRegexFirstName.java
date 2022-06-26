@@ -3,6 +3,7 @@ package com.bridgelabz;
 
 import org.testng.annotations.Test;
 
+import static org.testng.AssertJUnit.assertFalse;
 import static org.testng.AssertJUnit.assertTrue;
 
 public class TestRegexFirstName {
@@ -22,49 +23,49 @@ public class TestRegexFirstName {
     }
 
     @Test
-    public void givenEmail_whenTested_shouldFollowConvention(){
+    public void givenEmail_whenTested_shouldFollowConvention() {
         RegexGmail email = new RegexGmail();
         boolean result = email.checkEmail("vin@co.in");
         assertTrue(result);
     }
 
     @Test
-    public void givenPhone_WhenTested_shouldReturnTrue(){
+    public void givenPhone_WhenTested_shouldReturnTrue() {
         RegexMobile mobile = new RegexMobile();
         boolean result = mobile.checkPhone("91 7804879237");
         assertTrue(result);
     }
 
     @Test
-    public void givenPassword_WhenTested_shouldReturnTrue(){
+    public void givenPassword_WhenTested_shouldReturnTrue() {
         RegexPassword password = new RegexPassword();
         boolean result = password.checkPassword("HsdjfksJjsjd");
         assertTrue(result);
     }
 
     @Test
-    public void givenPasswordHaveAtLeastOneUpperCase_WhenTested_shouldReturnTrue(){
+    public void givenPasswordHaveAtLeastOneUpperCase_WhenTested_shouldReturnTrue() {
         RegexPasswordUpperCase password = new RegexPasswordUpperCase();
         boolean result = password.checkPasswordUpperCase("HsdjfksJjsjd");
         assertTrue(result);
     }
 
     @Test
-    public void givenPasswordHaveAtLeastOneNumeric_WhenTested_shouldReturnTrue(){
+    public void givenPasswordHaveAtLeastOneNumeric_WhenTested_shouldReturnTrue() {
         RegexPasswordNumeric password = new RegexPasswordNumeric();
         boolean result = password.checkPasswordNumeric("Hsdjf44ksJjsjd");
         assertTrue(result);
     }
 
     @Test
-    public void givenPasswordHaveAtLeastOneSpecialCharacter_WhenTested_shouldReturnTrue(){
+    public void givenPasswordHaveAtLeastOneSpecialCharacter_WhenTested_shouldReturnTrue() {
         RegexPasswordSpecialCharacter password = new RegexPasswordSpecialCharacter();
         boolean result = password.checkPasswordSpecialCharacter("Hsdjf44ksJ%$jsjd");
         assertTrue(result);
     }
 
     @Test
-    public void givenEmail_WhenTested_shouldReturnTrue(){
+    public void givenEmail_WhenTested_shouldReturnTrue() {
         GmailSample email = new GmailSample();
         boolean result = email.checkEmail("abc@yahoo.com");
         assertTrue(result);
@@ -80,13 +81,14 @@ public class TestRegexFirstName {
         assertTrue(result);
         result = email.checkEmail("abc@1.com,");
         assertTrue(result);
-        result = email.checkEmail("abc@gmail.com.com"); 
+        result = email.checkEmail("abc@gmail.com.com");
         assertTrue(result);
         result = email.checkEmail("abc+100@gmail.com");
         assertTrue(result);
     }
+
     @Test
-    public void WhenProvidedforUserInfo_andTested_shouldApproveAll(){
+    public void WhenProvidedforUserInfo_andTested_shouldApproveAll() {
         UserInformation user = new UserInformation();
         boolean result = user.checkName("Vinit Grover");
         assertTrue(result);
@@ -98,5 +100,15 @@ public class TestRegexFirstName {
         assertTrue(result);
     }
 
-
+    @Test
+    public void givenInvalidEntry_WhenTested_shouldHandleException() {
+        RegexPasswordSpecialCharacter password = new RegexPasswordSpecialCharacter();
+        boolean result = true;
+        try {
+            result = password.checkPasswordSpecialCharacter(null);
+        } catch (NullPointerException e) {
+            result = false;
+        }
+        assertFalse(false);
+    }
 }
